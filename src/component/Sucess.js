@@ -61,7 +61,7 @@ function Sucess(props) {
   
   return (
     <>
-    <p>{data}</p>
+    <div>{data}</div>
     </>
   )
 }

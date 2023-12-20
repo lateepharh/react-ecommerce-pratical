@@ -1,9 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
-import { DataWare } from '../Pages/DataWares'
-import {Card, Button} from "@mui/material"
+import { DataWare } from '../Pages/DataWares';
+import {Card, Button} from "@mui/material";
 // import Layout from '../Layout/Layout';
-import "../Layout/Layout.css"
+import "../Layout/Layout.css";
+import { ProductContext } from '../context/ProductContext';
 
 
 const AllProductType = ["Home", ...new Set(DataWare.map((product)=> product.productType))];
@@ -50,13 +51,20 @@ const ProductsTypesCategories = (props)=>{
     )
 }
 const AllItems = (props)=>{
-    const {title, image,price}= props
+    const {title, image,price,id}= props;
+    const {AddtoCart,cartItems} = React.useContext(ProductContext);
+
+    const productAmount = cartItems[id];
+
     return(
         <div className="home--">
             <Card className="cards">
-                <img src={image} alt="" />
-                <h5><b>{title}</b></h5>
-                <p>#{price}</p>
+               <div>
+                  <img src={image} alt="" />
+                  <h5><b>{title}</b></h5>
+                   <p>#{price}</p>
+               </div>
+               <Button variant='contained' onClick={()=> AddtoCart(id)}>Add to cart {productAmount > 0 && <>({productAmount})</>}</Button>
             </Card>
         </div>
     )
