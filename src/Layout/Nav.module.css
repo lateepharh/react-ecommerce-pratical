@@ -1,0 +1,29 @@
+.dropdown{
+    overflow: hidden;
+}
+.dropdown_content{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 08px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 2009;
+    padding: 15px;
+}
+a{
+    float: none;
+    color: black;
+    text-decoration: none;
+    text-align: start;
+}
+.dropdown:hover .dropdown_content{
+    display: block;
+}
+.hover{
+    display: flex;
+    gap: 7px;
+    color: black;
+}
+.hover:hover{
+    color: blueviolet;
+}
