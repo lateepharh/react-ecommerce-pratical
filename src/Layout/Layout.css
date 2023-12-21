@@ -99,5 +99,6 @@ a{
 }
 .btn_container{
     justify-content: center;
+    display: flex;
 
 }

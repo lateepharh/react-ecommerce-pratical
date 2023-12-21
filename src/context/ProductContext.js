@@ -23,11 +23,14 @@ export const ProductContextProvider = (props)=>{
     const RemoveFromCart =(itemid)=>{
         setCartItems((prev)=>({...prev, [itemid]: prev[itemid] - 1}))
     };
-
+    const updateCartItem =(newamount, itemId)=>{
+        setCartItems((prev)=> ({...prev, [itemId]:newamount}))
+    }
     const context ={
         cartItems,
         AddtoCart,
         RemoveFromCart,
+        updateCartItem
     };
     console.log(cartItems);
     return (

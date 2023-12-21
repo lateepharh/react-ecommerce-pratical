@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShoppingCartCheckout,Search,PersonOutline,ShoppingCartOutlined,KeyboardArrowDownOutlined, HelpOutlineOutlined} from "@mui/icons-material";
+import { ShoppingCartCheckout,Search,PersonOutline,ShoppingCartOutlined,KeyboardArrowDownOutlined} from "@mui/icons-material";
 import { AppBar,Toolbar,Typography, Stack,Button,TextField,InputAdornment,IconButton} from "@mui/material";
 import { useMediaQuery } from 'react-responsive';
 import Menu from '../component/Menu';
@@ -38,13 +38,16 @@ function Nav() {
                         </IconButton>
                     </div>
                     <div className="hover">
-                        <IconButton className='icon'>
+                        {/* <IconButton className='icon'>
                             <HelpOutlineOutlined/>
                         </IconButton>
                         <Typography variant='p'>Help</Typography>
                         <IconButton className='icon'>
                             <KeyboardArrowDownOutlined/>
-                        </IconButton>
+                        </IconButton> */}
+                        <Link to="/shop">
+                          <Typography variant='p'>Shop</Typography>
+                        </Link>
                     </div>
                     <div className="hover">
                         <IconButton className='icon'>

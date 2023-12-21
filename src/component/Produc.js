@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { DataWare } from '../Pages/DataWares';
 import {Card, Button} from "@mui/material";
+import Nav from '../Layout/Nav';
 // import Layout from '../Layout/Layout';
 import "../Layout/Layout.css";
 import { ProductContext } from '../context/ProductContext';
@@ -23,6 +24,7 @@ function Produc() {
     }
   return (
     <main>
+        <Nav></Nav>
         <ProductsTypesCategories filterProduct={filterProduct} ProductType={ProductType}/>
         
         <div className="home-content">
