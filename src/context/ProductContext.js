@@ -15,7 +15,18 @@ const GetInitialCart = ()=>{
 }
 export const ProductContextProvider = (props)=>{
     //this component define all the state and functions that will be used
-    const [cartItems, setCartItems] = React.useState(GetInitialCart())
+    const [cartItems, setCartItems] = React.useState(GetInitialCart());
+    const TotalAmount = ()=>{
+        let totalAmount = 0;
+        for(const item in cartItems){
+            if (cartItems[item] >= 0) {
+                let productinfo = DataWare.find((product) => product.id === Number(item));
+                totalAmount += cartItems[item] * productinfo.price;
+                console.log(cartItems[item]);
+            }
+        }
+        return totalAmount
+    }
 
     const AddtoCart =(itemid)=>{
         setCartItems((prev)=>({...prev, [itemid]: prev[itemid] + 1}))
@@ -26,11 +37,13 @@ export const ProductContextProvider = (props)=>{
     const updateCartItem =(newamount, itemId)=>{
         setCartItems((prev)=> ({...prev, [itemId]:newamount}))
     }
+
     const context ={
         cartItems,
         AddtoCart,
         RemoveFromCart,
-        updateCartItem
+        updateCartItem,
+        TotalAmount,
     };
     console.log(cartItems);
     return (

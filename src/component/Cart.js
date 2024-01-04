@@ -5,9 +5,12 @@ import CarProduct from './CarProduct';
 import Nav from '../Layout/Nav';
 import { Button } from '@mui/material';
 import ShoppingCartCheckout from '@mui/icons-material/ShoppingCartCheckout';
+import { useNavigate } from 'react-router-dom';
 function Cart() {
-  const {cartItems} = React.useContext(ProductContext)
+  const {cartItems,TotalAmount} = React.useContext(ProductContext);
+  const total = TotalAmount();
 
+  const navigate = useNavigate();
   return (
     <>
     <Nav></Nav>
@@ -24,10 +27,18 @@ function Cart() {
           })
         }
       </div>
-      <div className="check">
-        <p>Subtotal:#</p>
-        <Button variant='contained'>Checkout  <ShoppingCartCheckout/></Button>
-      </div>
+      {
+        TotalAmount > 0 ? (
+          <div className="check">
+           <p>Subtotal:#{total}</p>
+           <Button onClick={()=> navigate("/shop")}>Continue Shopping</Button>
+           <Button variant='contained'>Checkout  <ShoppingCartCheckout/></Button>
+          </div>
+        ):(
+          <h4>Your cart is empty</h4>
+        )
+      }
+     
     </div>
     </>
   )

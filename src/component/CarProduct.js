@@ -4,7 +4,7 @@ import { ProductContext } from '../context/ProductContext';
 
 export default function CarProduct(props) {
     const {id,title,image,price} = props.data;
-  const {cartItems, AddtoCart,RemoveFromCart} = React.useContext(ProductContext);
+  const {cartItems, AddtoCart,RemoveFromCart,updateCartItem} = React.useContext(ProductContext);
 
   return (
     <div className='cart-product'>
@@ -15,7 +15,7 @@ export default function CarProduct(props) {
        </div>
        <div className="count-handler">
         <button onClick={()=>AddtoCart(id)}>+</button>
-         <input type="text" value={cartItems[id]} />
+         <input type="text" value={cartItems[id]} onChange={(e) => { updateCartItem(Number(e.target.value),id)}} />
          <button onClick={()=>RemoveFromCart(id)}>-</button>
        </div>
     </div>
