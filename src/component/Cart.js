@@ -6,6 +6,8 @@ import Nav from '../Layout/Nav';
 import { Button } from '@mui/material';
 import ShoppingCartCheckout from '@mui/icons-material/ShoppingCartCheckout';
 import { useNavigate } from 'react-router-dom';
+import Class from "../Layout/Nav.module.css";
+
 function Cart() {
   const {cartItems,TotalAmount} = React.useContext(ProductContext);
   const total = TotalAmount();
@@ -15,8 +17,13 @@ function Cart() {
     <>
     <Nav></Nav>
     <div className='cart'>
-      <div>
-        <h4>Yout Cart</h4>
+      {/* <div>
+        <h4>Your Cart</h4>
+      </div> */}
+      <div className={Class.cartflex}>
+        <h2>Product</h2>
+        <h2>Quantity</h2>
+        <h2>Price</h2>
       </div>
       <div className="cartitems">
         {
@@ -28,10 +35,10 @@ function Cart() {
         }
       </div>
       {
-        TotalAmount > 0 ? (
-          <div className="check">
-           <p>Subtotal:#{total}</p>
-           <Button onClick={()=> navigate("/shop")}>Continue Shopping</Button>
+        total > 0 ? (
+          <div className={Class.check}>
+           <h4 className={Class.total}>Total:#{total}</h4>
+           <Button onClick={()=> navigate("/shop")} variant='contained'sx={{marginRight:"10px"}}>Continue Shopping</Button>
            <Button variant='contained'>Checkout  <ShoppingCartCheckout/></Button>
           </div>
         ):(

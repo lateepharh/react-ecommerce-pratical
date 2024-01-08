@@ -19,10 +19,11 @@ export const ProductContextProvider = (props)=>{
     const TotalAmount = ()=>{
         let totalAmount = 0;
         for(const item in cartItems){
-            if (cartItems[item] >= 0) {
+            if (cartItems[item] > 0) {
                 let productinfo = DataWare.find((product) => product.id === Number(item));
                 totalAmount += cartItems[item] * productinfo.price;
                 console.log(cartItems[item]);
+                console.log(productinfo.price);
             }
         }
         return totalAmount

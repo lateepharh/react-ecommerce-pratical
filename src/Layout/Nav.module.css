@@ -27,3 +27,39 @@ a{
 .hover:hover{
     color: blueviolet;
 }
+.cartProduct{
+    margin: 2rem 8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid grey;
+}
+.cartProduct img{
+    height: 80px;
+    width: 80px;
+    margin-bottom: 6px;
+    object-fit: contain;
+
+}
+.cartflex{
+    margin: 2rem 8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid grey;
+}
+.total{
+    text-align: end;
+    padding: 2rem 0;
+    border-bottom: 3px solid black;
+    border-top: 3px solid black;
+}
+.check{
+    margin: 2rem 8rem;
+    text-align: center;
+}
+.div{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
